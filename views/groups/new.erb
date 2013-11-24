@@ -1,0 +1,14 @@
+<div class="row-fluid">
+    <div class="">
+        <form action="/groups/new" class="form form-signin" method="post">
+            <h4>Создание новой группы</h4>
+            <select multiple name="users[]">
+                <% @friends.map {|friend|%>
+                <option value=<%= friend.id %>><%= friend.name %>(<%= friend.login %>)</option>
+                <% } if !@friends.nil?%>
+            </select>
+            <input type="text" name="name" placeholder="Name" />
+            <button class="btn btn-primary">Создать</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<h1>Welcome to my blog!</h1>
+<ul>
+    <% @users.each do |user| %>
+        <li>
+            <h5><a href="/users/<%= user.id %>"><%= user.login %></a>
+                <span><%= user.name %></span>
+                <span><%= user.email %></span>
+                <span><%= pretty_date(user.created_at) %></span>
+            </h5>
+        </li>
+    <% end %>
+</ul> 

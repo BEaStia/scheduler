@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Login</th>
+        <th>Email</th>
+        <th>Info</th>
+    </tr>
+    </thead>
+<% @users.map {|friend| %>
+        <tr>
+            <td><%= friend.name %>
+                <% if (friend.id != session[:user].id && @friends.find_by(user_id:session[:user].id,friend_id: friend.id).nil? )%>
+                    <a href="/friends/add/<%= friend.id %>" class="btn btn-small">Добавить</a>
+                <% end %>
+            </td>
+            <td><%= friend.email %></td>
+            <td><%= friend.info %></td>
+        </tr>
+
+
+<% } if !@users.nil?%>
+</table>

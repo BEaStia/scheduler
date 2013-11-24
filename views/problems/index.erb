@@ -1,0 +1,6 @@
+<a href="/problems/new" class="btn btn-small">Добавить</a>
+<ul>
+    <% @problems.each{|problem| %>
+        <li><%= problem.name %><a href="/problems/delete/<%= problem.id %>" class="btn btn-mini">Удалить</a></li>
+    <% } if !@problems.nil? %>
+</ul>

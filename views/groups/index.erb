@@ -1,0 +1,6 @@
+<a href="/groups/new" class="btn btn-mini">Создать новую группу</a>
+<ul>
+<% @groups.each{|group| %>
+    <li><a href="/groups/<%= group.id %>"><%= group.name %></a></li>
+<% } %>
+</ul>

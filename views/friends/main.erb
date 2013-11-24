@@ -1,0 +1,11 @@
+<a href="/friends/add" class="btn btn-small">Добавить</a>
+<table class="table table-bordered">
+<% @friends.map {|friend| %>
+    <tr>
+        <td><%= friend.email %></td>
+        <td><%= friend.login %></td>
+        <td><%= friend.name %></td>
+        <td><a href="/friends/remove/<%= friend.id %>" class="btn btn-small">Удалить</a></td>
+    </tr>
+<% } if !@friends.nil?%>
+</table>

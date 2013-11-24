@@ -1,0 +1,10 @@
+<div class="row-fluid">
+    <div class="span4 offset4">
+        <h4><%= @group.name %></h4>
+        <ul>
+            <% @members.each{|member| %>
+                <li><%= member.name %>(<%= member.email %>)</li>
+            <%}%>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+
+        .form-signin {
+            max-width: 300px;
+            padding: 19px 29px 29px;
+            margin: 0 auto 20px;
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05);
+        }
+        .form-signin .form-signin-heading,
+        .form-signin .checkbox {
+            margin-bottom: 10px;
+        }
+        .form-signin input[type="text"],
+        .form-signin input[type="password"] {
+            font-size: 16px;
+            height: auto;
+            margin-bottom: 15px;
+            padding: 7px 9px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">Scheduler</a>
+                <div class="nav-collapse collapse">
+                    <% if session[:user] %>
+                        <ul class="nav">
+                            <li <%= "class='active'" if controller.nil? %>><a href="/">Главная</a></li>
+                            <li <%= "class='active'" if controller.eql?("friends") %>><a href="/friends">Друзья</a></li>
+                            <li <%= "class='active'" if controller.eql?("groups") %>><a href="/groups">Группы</a></li>
+                            <li <%= "class='active'" if controller.eql?("calendar") %>><a href="/calendar">Календарь</a></li>
+                            <li <%= "class='active'" if controller.eql?("problems") %>><a href="/problems">Задачи</a></li>
+                        </ul>
+                    <% else %>
+                        <ul class="nav">
+                            <a href="/register" class="btn btn-small">Зарегистрироваться</a>
+                            <a href="/auth" class="btn btn-small">Авторизоваться</a>
+                        </ul>
+                    <% end %>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <%= yield %>
+    </div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap.min.js"></script>
+</body>
+</html>
